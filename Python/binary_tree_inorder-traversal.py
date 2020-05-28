@@ -26,7 +26,15 @@ class Solution:
             self.L.append(root.val)
             self.inorderTraversal(root.right)
         return self.L
-		
+class Solution1:
+	def preorder(self,root):
+		result,curr = [],root
+		while curr:
+			if curr.left == None:
+				result.append(curr.val)
+				curr = curr.right
+			else:
+    			
 if __name__ == "__main__":
 	root = TreeNode(1)
 	root.right = TreeNode(2)
