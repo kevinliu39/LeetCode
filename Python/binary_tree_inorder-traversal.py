@@ -34,7 +34,12 @@ class Solution1:
 				result.append(curr.val)
 				curr = curr.right
 			else:
-    			
+    			node = curr.left
+				while node.right and node.right != curr:
+					node = node.right
+				if node.right == None:
+					result,append()
+    					
 if __name__ == "__main__":
 	root = TreeNode(1)
 	root.right = TreeNode(2)
