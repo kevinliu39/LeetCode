@@ -1,5 +1,5 @@
 # Time : O(n)
-# Space: O(1)
+# Space: O(n)
 # 128. Longest Consecutive Sequence
 # Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 
@@ -14,14 +14,13 @@ class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         nums_set = set(nums)
         currentStreak, longestStreak = 0,0
-        for i in nums_set:
-            tmp = i
-            if (i - 1) in nums_set:
-                continue
-            else:
+        for num in nums_set:
+            current_num = num
+            if (num - 1) not in nums_set:
                 currentStreak = 1
-                while (tmp + 1) in nums_set:
+                while (current_num + 1) in nums_set:
                     currentStreak += 1
-                    tmp += 1
+                    current_num += 1
                 longestStreak = max(currentStreak, longestStreak)
+        
         return longestStreak
